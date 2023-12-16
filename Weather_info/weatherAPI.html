@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family:cursive;
+            color: white;
+        }
+        body{
+            width:100%;
+            height:100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(237, 255, 255);
+        }
+        .container{
+            width:400px;
+            background-color: rgb(96, 210, 248);
+            padding:30px 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.5s ease-in-out;
+        }
+        .title{
+            font-size: 35px;
+            margin:30px;
+            color:rgb(66, 66, 63)
+        }
+        input{
+            width:100%;
+            padding:20px;
+            border: none;
+            border-radius: 10px;
+            margin:0 0 20px 0;
+            font-size: 20px;
+            outline:none;
+            text-align: center;
+            color:black;
+        }
+        h2,.temp,h4,h3{
+            margin:0 0 15px 0;
+        }
+        h4{
+            font-size:20px;
+        }
+        h3{
+            font-size:30px;
+        }
+        h2{
+            font-size: 35px;
+        }
+        h1{
+            font-size: 45px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="title">Weather App</h1>
+    <div class="container">
+        <input type="text" class="text" placeholder="Search">
+        <h2 class="place"></h2>
+        <h1 class="temp"></h1>
+        <h4 class="max-min"></h4>
+        <h3 class="weather"></h3>
+        <h4 class="weather-desc"></h4>
+        <h4 class="weather-speed"></h4>
+    </div>
+    <script>
+        let search=document.querySelector('.text');
+        let place=document.querySelector('.place');
+        let temp=document.querySelector('.temp');
+        let max_min=document.querySelector('.max-min');
+        let weather=document.querySelector('.weather');
+        let weather_desc=document.querySelector('.weather-desc');
+        let weather_speed=document.querySelector('.weather-speed');
+        
+
+
+        search.addEventListener('keypress',(e)=>{
+        //    console.log(e)
+           if(e.charCode===13){
+              searchPlace(search.value);
+              search.value='';
+           }
+        });
+        function searchPlace(value){
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=8d745c16db6702486c7c1b248a7bd888`)
+            .then(res=>res.json())
+            .then(weatherData=>{
+                console.log(weatherData);
+                place.textContent=weatherData.name;
+                temp.textContent=weatherData.main.temp;
+                max_min.textContent=`${weatherData.main.temp_min}/${weatherData.main.temp_max}`
+                weather.textContent=weatherData.weather[0].main;
+                weather_desc.textContent=weatherData.weather[0].description;
+                weather_speed.textContent=`Speed: ${weatherData.wind.speed} , Direction: ${weatherData.wind.deg}`;
+            })
+            .catch(err=>console.log(err));
+        }
+
+    </script>
+</body>
+</html>
+<!-- 8d745c16db6702486c7c1b248a7bd888
+ -->
