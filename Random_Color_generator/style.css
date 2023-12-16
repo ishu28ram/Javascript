@@ -1,0 +1,38 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    padding: 30px;
+    background-color: antiquewhite;
+}
+h2{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    letter-spacing: 3px;
+}
+.color-container{
+    display: grid;
+    gap:5px;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+}
+.color-card{
+    width:200px;
+    height:200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid lightgray;
+    margin:10px 10px;
+    cursor: pointer;
+}
+.color-card:hover{
+   opacity: 0.8;
+}

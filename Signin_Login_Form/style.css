@@ -1,0 +1,77 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(Images/pexels-photo-4022219.webp);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    font-family: monospace;
+    background-repeat: no-repeat;
+  
+}
+h1{
+    padding-bottom: 20px;
+    text-align: center;
+}
+.form{
+    background-color: rgba(0,0, 0,0.2);
+    padding:30px 30px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px 2px rgba(0,0,0,0.6);
+    height: 100%;
+    align-self: flex-start;
+    margin: 20px auto;
+
+}
+.form-fields{
+    display: flex;
+    flex-direction: column;
+    margin-bottom:10px
+
+}
+.form-fields label{
+    color: white;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+}
+.form-fields input,button{
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin:10px 0;
+    width:350px;
+    margin-bottom: 0px;
+    font-size: 16px;
+}
+.form-fields .submit{
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    padding: 20px 15px;
+    cursor: pointer;
+    text-align: center;
+}
+.form-fields .submit:hover{
+    background-color: rgb(45, 44, 44);
+}
+.form-fields.error input{
+    border: 2px solid red;
+}
+.form-fields input::placeholder{
+    color:lightgray
+}
+.form-fields.error span{
+    color:red;
+    font-size: 16px;
+    padding:5px 0;
+    font-weight: bold;
+}

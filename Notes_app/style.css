@@ -1,0 +1,192 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-family: monospace;
+    
+}
+:root{
+    --main-bgColor:#F7ECE1;
+    --button-bgColor:#d0bdff;
+    --notes-bgColor:#bae8e8;
+    --shadow-color:#e3e3e3;
+
+}
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    min-width: 100%;
+    padding:30px 10%;
+    background-color: var(--main-bgColor);
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+button,i{
+    cursor: pointer;
+    
+}
+span:hover{
+    transform: scale(1.0.2);
+}
+.notes-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,280px);
+    gap:1.58rem;
+}
+
+.notes-container span{
+    border-radius: 50%;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    box-shadow: 4px 0px 2px rgba(0, 0, 0, 0.5)
+}
+.notes-container .notes-card,.notes-container .notes-card-main{
+    width:280px;
+    height:280px;
+    border:2px solid black;
+    background-color: var(--notes-bgColor);
+    border-radius: 10px;
+    padding: 20px 15px 15px 15px;
+}
+.notes-card-main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:2rem;
+}
+.notes-card-main p{
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+.notes-card-main span{
+    background-color: var(--button-bgColor);
+
+}
+.notes-card{
+    list-style-type: none;
+}
+
+.notes-card h2{
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+
+}
+.notes-card textarea{
+    width: 100%;
+    resize: none;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    height: 150px;
+    font-size: 16px;
+    margin-bottom: 10px; 
+    overflow-Y: auto;
+    border-bottom:2px solid rgb(202, 202, 202) 
+}
+.notes-card .notes-controls{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap:1.65rem;
+    align-items: center;
+    padding: 0 15px 10px;
+    
+}
+.notes-card .notes-controls p{
+    font-size: 14px;
+    color: gray
+}
+.notes-card .notes-controls div{
+    display: flex;
+    gap:15px;
+}
+.notes-card .notes-controls .edit-control{
+    background-color: whitesmoke;
+}
+.notes-card .notes-controls .delete-control{
+    background-color: rgb(241, 95, 95);
+}
+
+.modal-addnotes-bg{
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    width: 100%;
+    min-height: 100vh;
+    display: none;
+   
+}
+.modal-addnotes-bg .main-modal{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-addnotes-bg .modal-container{
+    background-color: var(--main-bgColor);
+    padding: 30px 25px;
+    border-radius: 5px;
+    width: 50%;
+    min-width:300px;
+}
+.modal-addnotes-bg .modal-container .modal-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modal-addnotes-bg .modal-container .form .form-fields{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.modal-addnotes-bg .modal-container .form .form-fields label{
+   font-size: 16px;
+   letter-spacing: 3px;
+   margin-bottom: 10px;
+}
+.modal-addnotes-bg .modal-container .form .form-fields textarea{
+   margin-bottom: 10px;
+   padding: 10px 5px;
+   font-size: 16px;
+   resize: none;
+   border-radius: 5px;
+}
+.modal-addnotes-bg .modal-container .form .form-fields button{
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 16px;
+    color: black;
+    background-color: var(--button-bgColor);
+    font-weight: bold;
+    
+
+}
+@media only screen and (max-width:550px){
+    .notes-container{
+        align-items: center;
+        justify-content: center;
+    }
+    .notes-card{
+        width: 100%;
+    }
+}
